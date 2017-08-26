@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def new
+    @product = Product.new
+  end
+
   def create
     @product = Product.new(product_params)
 
@@ -14,8 +18,21 @@ class ProductsController < ApplicationController
     end
   end
 
-  def new
-    @product = Product.new
+  def show
+    #code
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.update(product_params)
+      render plain: "ok"
+    else
+      render plain: "bad"
+    end
   end
 
   private
