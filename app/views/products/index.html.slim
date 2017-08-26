@@ -1,4 +1,8 @@
 p | hellow world
 
 - @products.each do |product|
-  = link_to product.name , edit_product_path(product) 
+    .products
+      p
+        = link_to product.name + "edit" , edit_product_path(product)
+      p
+        = link_to product.name + "destoroy" , "/products/#{product.id}", method: :delete

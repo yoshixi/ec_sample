@@ -1,0 +1,4 @@
+p
+  = link_to @product.name + "edit" , edit_product_path(product)
+p
+  = link_to @product.name + "destoroy" , "/products/#{@product.id}", method: :delete
