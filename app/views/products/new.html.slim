@@ -5,4 +5,6 @@ p product/new
   = f.text_field :name, placeholder: "ProductName"
   = f.label :price , "product price"
   = f.text_field :price, placeholder: "ProductPrice"
+  = f.label :shop_id , "shops"
+  = f.text_field :shop_id, placeholder: "shop_id", value: defalut_product_shop_id
   = f.submit :name, value: "SAVE", disable_with: "Save Now ..."

@@ -1,0 +1,6 @@
+p product/new
+
+= form_for  @shop do |f|
+  = f.label :name , "shop name"
+  = f.text_field :name, placeholder: "ProductName"
+  = f.submit :name, value: "SAVE", disable_with: "Save Now ..."

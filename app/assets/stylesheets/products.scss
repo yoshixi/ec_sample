@@ -1,3 +1,38 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$boot-color: #7952b3;
+
+.fixed-top {
+  height: 60px;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  p {
+    width: auto;
+    color: #eee;
+    line-height: 60px;
+    font-size: 16px;
+    margin-left: 30px;
+    display: inline-block;
+  }
+
+}
+
+.panel-heading p {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.top-box {
+  height: 60px;
+}
+
+.btn-bd-purple {
+  border-color: $boot-color;
+  &:hover {
+      color: #fff;
+      background-color: $boot-color;
+      border-color: $boot-color;
+   }
+}

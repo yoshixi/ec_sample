@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      render plain: "OK"
+      redirect_to :products
     else
       render plain: "Bad"
     end
@@ -29,9 +29,9 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      render plain: "ok"
+      redirect_to :product
     else
-      render plain: "bad"
+      redirect_to :new_product ,alert: 'save　fail...'
     end
   end
 
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name,:price).merge(shop_id: 1)
+    params.require(:product).permit(:name,:price, :shop_id)
   end
 
 end

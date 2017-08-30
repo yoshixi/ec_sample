@@ -1,0 +1,6 @@
+.btn-area
+  .d-flex.flex-column.flex-md-row.lead.mb-3
+    = link_to "create new product!"  , new_product_path(shop_id: 1), class: "btn btn-lg btn-bd-purple mb-3 mb-md-0 mr-md-3"
+    = link_to "create new shops!",new_shop_path, class: "btn btn-lg btn-outline-secondary"
+
+= render @shops

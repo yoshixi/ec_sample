@@ -1,7 +1,10 @@
 .col-md-3
   .panel.panel-default
     .panel-heading.clearfix
-      = product.name
+      p
+        = product.name
+      p
+        = link_to "edit", edit_product_path(product)
       / - if user_signed_in?
       /   - if product.already_add?(@session)
       /     = link_to 'カートから削除', remove_from_cart_product_path(product), class: "btn btn-danger btn-sm pull-right"
