@@ -1,0 +1,11 @@
+.col-md-3
+  .panel.panel-default
+    .panel-heading.clearfix
+      = product.name
+      / - if user_signed_in?
+      /   - if product.already_add?(@session)
+      /     = link_to 'カートから削除', remove_from_cart_product_path(product), class: "btn btn-danger btn-sm pull-right"
+      /   - else
+      /     = link_to 'カートに入れる', add_to_cart_product_path(product), class: "btn btn-success btn-sm pull-right"
+    .panel-body
+      = "$#{product.price}"
