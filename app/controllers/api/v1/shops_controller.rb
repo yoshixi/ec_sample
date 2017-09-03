@@ -2,7 +2,7 @@ class Api::V1::ShopsController < Api::ApplicationController
 
   def index
     @shops = Shop.all
-    render json: @shops 
+    render json: @shops
   end
 
   def new
@@ -13,29 +13,35 @@ class Api::V1::ShopsController < Api::ApplicationController
     @shop = Shop.new(shops_params)
 
     if @shop.save
-      redirect_to action: 'products', id: @shop.id
+      render json: @shop, status: 201
     else
-      redirect_to :new
+      render json: {errors: @shop.errors.full_messages[0]}, status: 409
     end
   end
 
+ def show
+   @shop = Shop.find(params[:id])
+   render json: @shop
+ end
+
   def edit
     @shop = Shop.find(params[:id])
+    render json: @shop
   end
 
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shops_params)
-      redirect_to :products_shop , notice: 'update success'
+      render json: @shop, status: 204
     else
-      redirect_to :edit_shop , notice: 'update fails'
+      render json: {errors: @shop.errors.full_messages[0]}, status: 409
     end
 
   end
 
   def products
     @products = Product.find(params[:id])
-    render template: "products/index"
+    render @products
   end
 
   private

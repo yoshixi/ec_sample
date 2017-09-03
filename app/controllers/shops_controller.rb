@@ -9,6 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def create
+    binding.pry
     @shop = Shop.new(shops_params)
 
     if @shop.save

@@ -5,40 +5,42 @@ class Api::V1::ProductsController < Api::ApplicationController
     render json: @products
   end
 
-  def new
-    @product = Product.new
-  end
-
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to :products
+      render json: @product, status: 201
     else
-      render plain: "Bad"
+      render json: {errors: @product.errors.full_messages[0]}, status: 409
     end
   end
 
   def show
-    #code
+    @product = Product.find(params[:id])
+    render json: @product
   end
 
   def edit
     @product = Product.find(params[:id])
+    render json: @product
   end
 
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      redirect_to :product
+      render json: @product, status: 204
     else
-      redirect_to :new_product ,alert: 'save　fail...'
+      render json: {errors: @product.errors.full_messages[0]}, status: 409
     end
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
+    @product = Product.find(params[:id])
+    if product.destroy
+      render status: 204
+    else
+      render json: {errors: @product.errors.full_messages[0]}, status: 409
+    end
   end
 
   private
