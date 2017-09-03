@@ -19,6 +19,7 @@ gem 'slim-rails'
 
 #api
 gem 'grape'
+gem 'rack-cors'
 
 #design
 gem 'bootstrap-sass'
