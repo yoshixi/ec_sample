@@ -9,4 +9,15 @@ Rails.application.routes.draw do
     end
 
   end
+  scope path: '/api', as: :api do
+    scope :v1 do
+      resources :products, controller: 'api/v1/products'
+
+      resources :shops, controller: 'api/v1/shops' do
+        member do
+          get 'products'
+        end
+      end
+    end
+  end
 end
