@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## api
 
-Things you may want to cover:
+### get
+`/api/v1/products`
+product全件取得
 
-* Ruby version
+`/api/v1/products/:product_id`
+product1件取得
 
-* System dependencies
+`/api/v1/shops`
+shop全件取得
 
-* Configuration
+`/api/v1/shops/:shop_id`
+shop1件取得
 
-* Database creation
+`/api/v1/shops/:id/products`
+shopに属しているproduct 全県取得
 
-* Database initialization
+### post
+`/api/v1/products`
+`params:product[name], product[price], product[shop_id]`
+productをcreate
 
-* How to run the test suite
+`/api/v1/shops`
+`params:shop[name]`
+shopをcreate
 
-* Services (job queues, cache servers, search engines, etc.)
+### put
+`/api/v1/products/:product_id`
+`params:product[name], product[price], product[shop_id]`
+productをcreate
 
-* Deployment instructions
+`/api/v1/shops/:shop_id`
+`params:shop[name]`
+shopをcreate
 
-* ...
+### delete
+`/api/v1/products/:product_id`
+
+`/api/v1/shops/:shop_id`
