@@ -22,6 +22,12 @@ gem 'grape'
 
 #design
 gem 'bootstrap-sass'
+
+#image uploader
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
