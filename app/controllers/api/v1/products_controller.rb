@@ -43,6 +43,10 @@ class Api::V1::ProductsController < Api::ApplicationController
     end
   end
 
+  def search
+    @products  = Product.search_product(params[:word])
+  end
+
   private
 
   def product_params
