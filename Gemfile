@@ -26,6 +26,7 @@ gem 'bootstrap-sass'
 #image uploader
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+gem 'fog'
 
 
 group :development, :test do

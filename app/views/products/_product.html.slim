@@ -12,3 +12,5 @@
       /     = link_to 'カートに入れる', add_to_cart_product_path(product), class: "btn btn-success btn-sm pull-right"
     .panel-body
       = "$#{product.price}"
+    .panel-body
+      = image_tag product.image
