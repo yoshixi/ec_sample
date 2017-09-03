@@ -5,9 +5,6 @@ class Api::V1::ShopsController < Api::ApplicationController
     render json: @shops
   end
 
-  def new
-    @shop = Shop.new
-  end
 
   def create
     @shop = Shop.new(shops_params)
@@ -23,11 +20,6 @@ class Api::V1::ShopsController < Api::ApplicationController
    @shop = Shop.find(params[:id])
    render json: @shop
  end
-
-  def edit
-    @shop = Shop.find(params[:id])
-    render json: @shop
-  end
 
   def update
     @shop = Shop.find(params[:id])

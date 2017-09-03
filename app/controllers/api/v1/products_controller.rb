@@ -20,11 +20,6 @@ class Api::V1::ProductsController < Api::ApplicationController
     render json: @product
   end
 
-  def edit
-    @product = Product.find(params[:id])
-    render json: @product
-  end
-
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
@@ -45,6 +40,7 @@ class Api::V1::ProductsController < Api::ApplicationController
 
   def search
     @products  = Product.search_product(params[:word])
+    render json: @products, status: 204
   end
 
   private

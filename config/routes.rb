@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   end
   scope path: '/api', as: :api do
     scope :v1 do
-      resources :products, controller: 'api/v1/products' do
+      resources :products, controller: 'api/v1/products', except: [:new,:edit] do
         collection do
           get 'search'
         end
       end
 
-      resources :shops, controller: 'api/v1/shops' do
+      resources :shops, controller: 'api/v1/shops' , except: [:new,:edit] do
         member do
           get 'products'
         end
